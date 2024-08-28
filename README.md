@@ -1,12 +1,30 @@
 # Wordle Game
 
-I created a version of the classic Wordle game using a combination of technologies to ensure a dynamic and engaging user experience. Built with **React.js** for efficient component-based architecture, **Tailwind CSS** for responsive and stylish design, and **JavaScript** for the game logic, this implementation also incorporates an API to validate words and fetch meanings.
+This is a classic Wordle game built using modern web technologies. The game allows users to guess a hidden five-letter word within a limited number of attempts. The user's input is validated in real-time, and feedback is provided to help guide them towards the correct word.
 
-## Key features include:
+## Technologies Used
 
-- **Dynamic Gameplay**: Users can interact with a virtual keyboard to guess the hidden word, with real-time feedback on each attempt.
-- **Responsive Design**: The game layout adjusts seamlessly across different screen sizes, thanks to Tailwind CSS's utility classes.
-- **Real-Time Validation**: Utilizes an external API to verify the validity of guessed words and provide instant feedback.
-- **Animated Effects**: CSS animations enhance the visual experience, making the game more engaging.
+- **React.js**: For building the user interface and managing the application's state.
+- **Tailwind CSS**: For styling the components with utility-first CSS.
+- **JavaScript**: For handling the game logic and interactions.
+- **Node.js**: For server-side operations and API integration.
+- **HTML & CSS**: For structuring and styling the web pages.
+- **API**: For real-time word validation and retrieving word meanings.
 
-This implementation ensures a fun and interactive experience for players, combining modern web technologies with a classic game concept.
+## Features
+
+- **Dynamic User Interface**: Components are styled with Tailwind CSS and animated for a smooth user experience.
+- **Keyboard Interaction**: Users can interact with the game using both on-screen and physical keyboards.
+- **Real-time Validation**: The game validates words and provides immediate feedback on each guess.
+- **Game Notifications**: Users receive notifications for correct guesses, invalid words, or game over scenarios.
+- **Word Generation**: The target word is randomly selected from a predefined list of words.
+
+## How It Works
+
+1. **User Interface**: The game is composed of a `WordCase` component that displays the current state of the game and a `Keyboard` component for user input.
+2. **Word Generation**: A random word is selected from a list and is used as the target word for the game.
+3. **Input Handling**: User input is processed both from the on-screen keyboard and physical keyboard, updating the game state accordingly.
+4. **Validation**: Each guess is checked against a dictionary API to ensure it's a valid word.
+5. **Feedback**: The game provides visual feedback on the guesses, indicating correct letters and their positions.
+
+Feel free to explore and play the game!
