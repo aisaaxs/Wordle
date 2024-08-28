@@ -12,9 +12,9 @@ const Keyboard = ({ onKeyPress }) => {
     };
 
     const rowStyle = (rowLength, isThirdRow) => ({
-        width: isThirdRow
-            ? `calc((100% / ${rowLength}) - 11px)`
-            : `calc((100% / ${rowLength}) - 5px)`
+        flex: isThirdRow
+            ? `1 1 calc((100% / ${rowLength}) - 11px)`
+            : `1 1 calc((100% / ${rowLength}) - 5px)`
     });
 
     useEffect(() => {
@@ -30,17 +30,17 @@ const Keyboard = ({ onKeyPress }) => {
 
     return (
         <div
-            className={`w-[800px] max-w-[800px] min-w-[500px] h-[200px] flex flex-col ${hasLoaded ? "animate-KeyboardFadeIn" : ""}`}
+            className={`w-full max-w-[800px] min-w-[500px] h-[200px] flex flex-col gap-y-[2px] ${hasLoaded ? "animate-KeyboardFadeIn" : ""}`}
             style={{
                 animation: hasLoaded ? "KeyboardFadeIn 2s ease-out" : "none"
             }}
         >
-            <div className="w-full h-[33.5%] flex flex-row items-center justify-evenly">
+            <div className="w-full min-h-[33.5%] flex flex-row items-center justify-evenly gap-x-[2px]">
                 {keys.firstRow.map(key => (
                     <div
                         key={key}
                         style={rowStyle(keys.firstRow.length, false)}
-                        className="flex justify-center items-center text-black text-[28px] font-bold font-new-amsterdam bg-slate-200 h-[95%] cursor-pointer hover:bg-slate-400 active:bg-black active:text-white select-none"
+                        className="flex justify-center items-center text-black text-[28px] font-bold font-new-amsterdam bg-slate-200 h-[95%] min-h-[60px] cursor-pointer hover:bg-slate-400 active:bg-black active:text-white select-none"
                         onClick={() => handleClick(key)}
                     >
                         {key}
@@ -48,12 +48,12 @@ const Keyboard = ({ onKeyPress }) => {
                 ))}
             </div>
 
-            <div className="w-full h-[33.5%] flex flex-row items-center justify-evenly">
+            <div className="w-full min-h-[33.5%] flex flex-row items-center justify-evenly gap-x-[2px]">
                 {keys.secondRow.map(key => (
                     <div
                         key={key}
                         style={rowStyle(keys.secondRow.length, false)}
-                        className="flex justify-center items-center text-black text-[28px] font-bold font-new-amsterdam bg-slate-200 h-[95%] cursor-pointer hover:bg-slate-400 active:bg-black active:text-white select-none"
+                        className="flex justify-center items-center text-black text-[28px] font-bold font-new-amsterdam bg-slate-200 min-h-[60px] h-[95%] cursor-pointer hover:bg-slate-400 active:bg-black active:text-white select-none"
                         onClick={() => handleClick(key)}
                     >
                         {key}
@@ -61,16 +61,16 @@ const Keyboard = ({ onKeyPress }) => {
                 ))}
             </div>
 
-            <div className="w-full h-[33.5%] flex flex-row items-center justify-evenly">
+            <div className="w-full min-h-[33.5%] flex flex-row items-center justify-evenly gap-x-[2px]">
                 {keys.thirdRow.map(key => (
                     <div
                         key={key}
                         style={{
-                            width: key === "Enter" || key === "Backspace"
-                                ? `calc(${rowStyle(keys.thirdRow.length, true).width} + 26px)`
-                                : rowStyle(keys.thirdRow.length, true).width
+                            flex: key === "Enter" || key === "Backspace"
+                                ? `1 1 calc((100% / ${keys.thirdRow.length}) + 26px)`
+                                : rowStyle(keys.thirdRow.length, true).flex
                         }}
-                        className="group flex justify-center items-center text-black text-[28px] font-bold font-new-amsterdam bg-slate-200 h-[95%] cursor-pointer hover:bg-slate-400 active:bg-black active:text-white select-none"
+                        className="group flex justify-center items-center text-black text-[28px] font-bold font-new-amsterdam bg-slate-200 min-h-[60px] h-[95%] cursor-pointer hover:bg-slate-400 active:bg-black active:text-white select-none"
                         onClick={() => handleClick(key)}
                     >
                         {key === "Backspace" ? (

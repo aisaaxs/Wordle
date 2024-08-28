@@ -13,6 +13,8 @@ const WordCase = ({ keyPressed, unloadKeyPress }) => {
 
         let randomNumber = Math.floor(Math.random() * words.length);
         setTargetWord(words[randomNumber].toUpperCase().split(''));
+
+        console.log(words[randomNumber]);
     }
 
     useEffect(() => {
@@ -112,7 +114,7 @@ const WordCase = ({ keyPressed, unloadKeyPress }) => {
                             setShowNotification(true);
                             setNotifyMessage("Correct. Great Job!");
 
-                            let countdown = 10;
+                            let countdown = 5;
                             const countdownInterval = setInterval(() => {
                                 if (countdown > 0) {
                                     setNotifyMessage(`Restarting in ${countdown}...`);
