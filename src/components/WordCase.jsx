@@ -13,8 +13,6 @@ const WordCase = ({ keyPressed, unloadKeyPress }) => {
 
         let randomNumber = Math.floor(Math.random() * words.length);
         setTargetWord(words[randomNumber].toUpperCase().split(''));
-
-        console.log(words[randomNumber]);
     }
 
     useEffect(() => {
