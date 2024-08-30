@@ -30,7 +30,7 @@ const Keyboard = ({ onKeyPress }) => {
 
     return (
         <div
-            className={`w-full max-w-[800px] min-w-[500px] h-[200px] flex flex-col gap-y-[2px] ${hasLoaded ? "animate-KeyboardFadeIn" : ""}`}
+            className={`w-full max-w-[800px] min-w-[500px] h-[200px] flex flex-col ${hasLoaded ? "animate-KeyboardFadeIn" : ""}`}
             style={{
                 animation: hasLoaded ? "KeyboardFadeIn 2s ease-out" : "none"
             }}

@@ -1,6 +1,7 @@
 import './App.css';
 import Keyboard from './components/Keyboard';
 import WordCase from './components/WordCase';
+import Sidebar from './components/Sidebar';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -39,18 +40,21 @@ function App() {
     setKeyPressed(null);
   };
 
+  const [isLightMode, setIsLightMode] = useState(true);
+
   return (
-    <div className="w-screen min-h-screen flex flex-col gap-y-[10px] justify-evenly items-center bg-blue-400 pb-[20px]">
+    <div className={`w-screen min-h-screen flex flex-col gap-y-[10px] justify-evenly items-center ${isLightMode ? "bg-blue-400" : "bg-blue-950"} pb-[20px]`}>
       <h1
-        className={`text-blue-950 text-[60px] font-extrabold p-0 font-matemasie uppercase ${
+        className={`${isLightMode ? "text-blue-950" : "text-blue-400"} text-[60px] font-extrabold p-0 font-matemasie uppercase select-none ${
           hasLoaded ? 'animate-EmblemFadeIn' : ''
         }`}
         style={{ animation: hasLoaded ? 'EmblemFadeIn 2s ease-out' : 'none' }}
       >
         WORDLE
       </h1>
-      <WordCase keyPressed={keyPressed} unloadKeyPress={unloadKeyPress} />
+      <WordCase keyPressed={keyPressed} unloadKeyPress={unloadKeyPress} isLightMode={isLightMode} />
       <Keyboard onKeyPress={handleKeyPress} />
+      <Sidebar isLightMode={isLightMode} setIsLightMode={() => setIsLightMode(!isLightMode)} />
     </div>
   );
 }
